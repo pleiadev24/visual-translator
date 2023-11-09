@@ -3,6 +3,34 @@
 OCR, or Optical Character Recognition, is a technology that enables the conversion of different types of documents, such as scanned paper documents, PDFs, or images captured by a digital camera, into editable and searchable data. OCR technology recognizes text within these documents, making it possible to extract, edit, and store the text for various purposes.
 Tesseract OCR (Optical Character Recognition) is an open-source software library. It is designed to recognize text in images and convert it into machine-readable text.
 
+# Tesseract OCR Installation Guide
+
+This guide provides step-by-step instructions on how to download and install Tesseract OCR on different operating systems.
+
+## Windows Installation
+
+1. Download Tesseract Installer:
+   - Visit the [Tesseract GitHub Releases](https://github.com/tesseract-ocr/tesseract/releases) page.
+   - Download the appropriate installer for your Windows version (32-bit or 64-bit).
+
+2. Run the Installer:
+   - Double-click the downloaded installer executable.
+   - Follow the on-screen instructions to complete the installation.
+
+3. Set Environment Variable (Optional but recommended):
+   - Add Tesseract to your system's PATH environment variable.
+   - Path example: `C:\Program Files\Tesseract-OCR`
+  
+4. Verify Installation:
+   - Open Command Prompt and type `tesseract --version` to confirm the installation.
+
+## macOS Installation (Using Homebrew)
+
+1. Install Homebrew (if not already installed):
+   ```bash
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
+
 ## Google Cloud Translation API
 
 #### Step 1: Create a Google Cloud Platform (GCP) Account
