@@ -1,3 +1,8 @@
+## Background 
+
+OCR, or Optical Character Recognition, is a technology that enables the conversion of different types of documents, such as scanned paper documents, PDFs, or images captured by a digital camera, into editable and searchable data. OCR technology recognizes text within these documents, making it possible to extract, edit, and store the text for various purposes.
+Tesseract OCR (Optical Character Recognition) is an open-source software library. It is designed to recognize text in images and convert it into machine-readable text.
+
 ## Google Cloud Translation API
 
 #### Step 1: Create a Google Cloud Platform (GCP) Account
