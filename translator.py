@@ -8,7 +8,7 @@ pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tessera
 # Set up Google Cloud Translation API (replace 'YOUR_API_KEY' with your actual API key)
 translate_client = translate.Client(api_key='YOUR_API_KEY')
 
-# Function to capture, process, and translate frames in real time
+# Function to preprocess, capture, process, and translate frames in real time
 def translate_text_from_frame():
     try:
         cap = cv2.VideoCapture(0)  # Open the default camera (index 0)
@@ -16,9 +16,12 @@ def translate_text_from_frame():
         while True:
             ret, frame = cap.read()  # Read a frame from the camera
             gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)  # Convert the frame to grayscale
+            
+            # Preprocess the frame using thresholding
+            _, thresholded = cv2.threshold(gray, 150, 255, cv2.THRESH_BINARY)  # Adjust threshold value as needed
 
-            # Use OCR to extract text from the frame
-            extracted_text = pytesseract.image_to_string(gray)
+            # Use OCR to extract text from the preprocessed frame
+            extracted_text = pytesseract.image_to_string(thresholded)
 
             # Translate the extracted text using Google Cloud Translation API
             if extracted_text:
@@ -29,8 +32,9 @@ def translate_text_from_frame():
                 except Exception as translation_error:
                     print("Translation Error:", translation_error)
             
-            # Display the original frame with extracted text
-            cv2.imshow('Real-Time Translator', frame)
+            # Display the original frame and the preprocessed frame with extracted text
+            cv2.imshow('Original Frame', frame)
+            cv2.imshow('Thresholded Frame', thresholded)
 
             if cv2.waitKey(1) & 0xFF == ord('q'):  # Press 'q' to exit the loop and close the window
                 break
